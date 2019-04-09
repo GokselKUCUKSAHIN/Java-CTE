@@ -1,6 +1,6 @@
 package edu.erciyes.graphics;
 
-public interface IResizeable
+public interface IResizable
 {
 
     void resize(int size);
