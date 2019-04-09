@@ -1,6 +1,6 @@
 package edu.erciyes.graphics;
 
-public class Circle extends GraphicObject implements IResizeable
+public class Circle extends GraphicObject implements IResizable
 {
 
     private double radius;
