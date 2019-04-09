@@ -32,4 +32,10 @@ public class Circle extends GraphicObject implements IResizable
     {
         this.radius *= size;
     }
+    
+    @Override
+    public boolean equals(Object obj)
+    {
+        return (obj == this);
+    }
 }
