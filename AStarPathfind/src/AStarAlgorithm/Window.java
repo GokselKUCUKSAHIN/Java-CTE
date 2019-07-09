@@ -110,21 +110,27 @@ public class Window extends Application
                     if (!closeSet.contains(neighbor) && !neighbor.isWall())
                     {
                         double tempG = current.getG() + 1;
+
+                        boolean newPath = false;
                         if (openSet.contains(neighbor))
                         {
                             if (tempG < neighbor.getG())
                             {
                                 neighbor.setG(tempG);
+                                newPath = true;
                             }
                         } else
                         {
                             neighbor.setG(tempG);
+                            newPath = true;
                             openSet.add(neighbor);
                         }
-
-                        neighbor.setH(heuristic(neighbor, end));
-                        neighbor.setF(neighbor.getG() + neighbor.getH());
-                        neighbor.setPrevious(current);
+                        if (newPath)
+                        {
+                            neighbor.setH(heuristic(neighbor, end));
+                            neighbor.setF(neighbor.getG() + neighbor.getH());
+                            neighbor.setPrevious(current);
+                        }
                     }
                 }
 
