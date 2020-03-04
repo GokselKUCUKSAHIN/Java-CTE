@@ -21,7 +21,7 @@ class Point
         this.x2 = x2;
     }
 
-    public Point getReverese()
+    public Point getReverse()
     {
         return new Point(-this.x1, -this.x2);
     }

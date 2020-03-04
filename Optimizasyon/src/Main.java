@@ -7,7 +7,7 @@ public class Main
     {
         // 1. ADIM
         Point x0 = new Point(1, 0);
-        double alpha = 0.0001; //0.25 //0.5 //0.01
+        double alpha = 0.25; //0.25 //0.5 //0.01
         double epsilon = 0.01; //0.01 //0.5
         Point enDikInis = enDikInisAlg(x0, alpha, epsilon);
         Point esneklikGradient = eslenikGradAlg(x0, alpha, epsilon);
@@ -24,7 +24,7 @@ public class Main
         solutions.add(init);
 
         Point prevDirection = new Point(0, 0);
-        Point diretction = gradient(init).getReverese();
+        Point diretction = gradient(init).getReverse();
         Point prevGradient = new Point(0, 0);
         Point gradient = gradient(solutions.get(t));
         gradient = gradient(solutions.get(t));
@@ -51,7 +51,7 @@ public class Main
                     //3. ADIM
                     double beta = beta(gradient, prevGradient);
                     prevDirection = diretction;
-                    diretction = gradient.getReverese().add(diretction.multiply(beta));
+                    diretction = gradient.getReverse().add(diretction.multiply(beta));
                 }
             }
         }
@@ -74,7 +74,7 @@ public class Main
             } else
             {
                 // 3. ADIM
-                Point d = solutions.get(t).getReverese();
+                Point d = solutions.get(t).getReverse();
                 // 4. ADIM
                 // Alfa sabit
                 solutions.add(solutions.get(t).add(d.multiply(alpha)));
